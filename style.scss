@@ -1,0 +1,572 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+// variables
+$primaryColorGrenn: #10cab7;
+$secondaryColor: #2c4755;
+$lastColor: #f6f6f6;
+// transition variable
+$transition: all 0.5s ease;
+// prefexer
+@mixin prefix($proprety, $value, $prefixes: ()) {
+  @each $prfixe in $prefixes {
+    #{'-'+ $prfixe + '-' +$proprety}: $value;
+  }
+  // output standard non-prefixed declaration
+  #{$proprety}: $value;
+}
+
+body {
+  color: #222;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.container {
+  width: 900px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  @media (max-width: 575.98px) {
+    max-width: 100%;
+  }
+  @media (min-width: 576px) {
+    max-width: 540px;
+  }
+  @media (min-width: 768px) {
+    max-width: 720px;
+  }
+  @media (min-width: 992px) {
+    max-width: 960px;
+  }
+  @media (min-width: 992px) {
+    max-width: 960px;
+  }
+  @media (min-width: 1200px) {
+    max-width: 1140px;
+  }
+}
+// start componenets
+.btn {
+  border: none;
+  background: transparent;
+  color: $secondaryColor;
+  border: solid 2px $lastColor;
+  padding: 0.6rem 1.8rem;
+  text-transform: capitalize;
+  cursor: pointer;
+  @include prefix(transition, 0.5s ease, webkit moz o ms);
+  &:hover {
+    color: $primaryColorGrenn;
+  }
+}
+// start speciale heading
+.speciale-head {
+  text-align: center;
+  .speciale-heading {
+    font-size: 6rem;
+    color: $secondaryColor;
+    opacity: 0.2;
+    @media (max-width: 575.98px) {
+      font-size: 4rem;
+    }
+  }
+  .text-speciale {
+    color: $secondaryColor;
+    margin-top: -3rem;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+  }
+}
+// end speciale heading
+
+// end componenets
+// start header
+header {
+  .navbar {
+    padding: 1.5rem 0;
+    .nav-center {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      img {
+        width: 60px;
+        @media (max-width: 575.98px) {
+          width: 50px;
+        }
+      }
+      .nav-Links {
+        &:hover .nav-toogle span:nth-child(2) {
+          width: 100%;
+        }
+        .nav-toogle {
+          width: 35px;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: flex-end;
+          cursor: pointer;
+          z-index: 1;
+          @media (min-width: 576px) {
+            display: none;
+          }
+          span {
+            margin-bottom: 5px;
+            background-color: #222;
+            height: 3px;
+
+            &:first-child {
+              width: 100%;
+            }
+            &:nth-child(2) {
+              width: 60%;
+              @include prefix(transition, 0.5s ease, webkit moz o ms);
+            }
+
+            &:last-child {
+              width: 100%;
+            }
+          }
+        }
+        .links {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          @media (max-width: 575.98px) {
+            display: none;
+          }
+          li {
+            padding: 1rem;
+            a {
+              display: block;
+              font-size: 0.85rem;
+              font-weight: 600;
+              text-transform: capitalize;
+              color: $secondaryColor;
+              @include prefix(transition, 0.5s ease, webkit moz o ms);
+              @media (max-width: 575.98px) {
+                font-size: 0.7rem;
+                font-weight: normal;
+              }
+              &:hover {
+                color: $primaryColorGrenn;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// end header
+// start main
+main {
+  .landing {
+    position: relative;
+    background-image: url("../images/VIMFF-parallax-mountains.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center/center;
+    height: calc(100vh - 100.4px);
+    .landing-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 450px;
+      max-width: 100%;
+      @media (max-width: 575.98px) {
+        width: 300px;
+      }
+
+      h1 {
+        margin: 0;
+        color: $primaryColorGrenn;
+        font-size: 3rem;
+        text-transform: capitalize;
+      }
+      p {
+        font-size: 1rem;
+        color: $secondaryColor;
+        margin-bottom: 1rem;
+        @media (max-width: 575.98px) {
+          font-size: 1.1rem;
+        }
+      }
+      .btn-light {
+        color: $lastColor;
+        @include prefix(transition, 0.5s ease, webkit moz o ms);
+        &:hover {
+          color: $primaryColorGrenn;
+        }
+      }
+    }
+  }
+}
+// end main
+// start features
+.features {
+  margin-bottom: 3rem;
+  background-color: $lastColor;
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+    @media (max-width: 767.98px) {
+      display: block;
+    }
+    .feat {
+      padding: 4rem;
+      text-align: center;
+      @media (max-width: 991.98px) {
+        padding: 2rem;
+      }
+      i {
+        color: $primaryColorGrenn;
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        @include prefix(transition, 0.5s ease, webkit moz o ms);
+        &:hover {
+          color: $secondaryColor;
+        }
+      }
+      h4 {
+        font-size: 1rem;
+        font-weight: 800;
+        text-transform: capitalize;
+        margin-bottom: 0.5rem;
+      }
+      p {
+        font-size: 0.75rem;
+        color: $secondaryColor;
+        opacity: 0.8;
+      }
+      &:nth-child(2) {
+        background-color: $lastColor;
+        border-bottom: solid 2px rgba(0, 0, 0, 0.1);
+        border-right: solid 2px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+}
+// end features
+// START SERVICES
+.services {
+  padding: 1rem;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+  @media (max-width: 991.98px) {
+    margin-bottom: 0;
+  }
+  .services-content {
+    margin-top: 7rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    @media (max-width: 991.98px) {
+      text-align: center;
+      grid-template-columns: repeat(1, 1fr);
+    }
+    .col {
+      .serv {
+        display: flex;
+        margin-bottom: 2.5rem;
+        @media (max-width: 991.98px) {
+          display: block;
+          text-align: center;
+        }
+
+        i {
+          flex-basis: 60px;
+          color: $primaryColorGrenn;
+          font-size: 2rem;
+          @include prefix(transition, 0.5s ease, webkit moz o ms);
+          @media (max-width: 991.98px) {
+            margin-bottom: 1.5rem;
+          }
+          &:hover {
+            color: $secondaryColor;
+          }
+        }
+        .service-text {
+          flex: 1;
+          h2 {
+            margin: 0 0 0.7rem;
+            font-size: 1.1rem;
+            font-weight: 800;
+            text-transform: capitalize;
+          }
+          p {
+            font-size: 0.8rem;
+            color: $secondaryColor;
+            opacity: 0.8;
+          }
+        }
+      }
+      .image {
+        text-align: center;
+        position: relative;
+        &::before {
+          content: "";
+          position: absolute;
+          top: -15%;
+          right: -15%;
+          width: 80px;
+          height: calc(100% + 100px);
+          background-color: $secondaryColor;
+          z-index: -1;
+          opacity: 0.7;
+        }
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+// END SERVICES
+// start portfolio
+.portfolio {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  background-color: $lastColor;
+  padding: 2rem 3rem;
+  .container {
+    width: 100%;
+    .portfolio-content {
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      @media (max-width: 767.98px) {
+        display: block;
+      }
+      .card {
+        padding: 1rem;
+        background-color: transparent;
+        border-radius: 0.5rem;
+        box-shadow: 2px 3px 5px rgba($secondaryColor, 0.5);
+        @media (max-width: 991.98px) {
+          text-align: center;
+          margin-bottom: 2rem;
+        }
+        img {
+          overflow: hidden;
+          max-width: 100%;
+          @include prefix(transition, 0.5s ease, webkit moz o ms);
+          border-radius: 0.5rem;
+
+          &:hover {
+            transform: scale(1.08);
+          }
+        }
+        h4 {
+          font-size: 1.1rem;
+          font-weight: 800;
+          text-transform: capitalize;
+          margin-bottom: 0.6rem;
+        }
+        p {
+          font-size: 0.8rem;
+          color: $secondaryColor;
+          opacity: 0.8;
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+}
+// end portfolio
+// star about
+.about {
+  .about-content {
+    margin-top: 5rem;
+    margin-bottom: 6rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @media (max-width: 991.98px) {
+      flex-direction: column;
+    }
+    .image-about {
+      position: relative;
+      width: 250px;
+      height: 320px;
+      margin-bottom: 2rem;
+      @media (max-width: 991.98px) {
+        margin-bottom: 5rem;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        width: 80px;
+        height: 130%;
+        border-left: solid 40px $lastColor;
+        border-bottom: solid 50px $lastColor;
+        border-top: solid 40px $lastColor;
+        top: -7%;
+        left: -10%;
+        z-index: -1;
+        @media (max-width: 991.98px) {
+          display: none;
+        }
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: -5%;
+        right: -32%;
+        border-left: solid 60px #10cab7;
+        border-bottom: solid 50px #10cab7;
+        width: 120px;
+        height: 100%;
+        z-index: -1;
+        @media (max-width: 991.98px) {
+          display: none;
+        }
+      }
+      img {
+        max-width: 100%;
+      }
+    }
+    .about-text {
+      flex-basis: 55%;
+      .paragraph-bold {
+        position: relative;
+        font-size: 1rem;
+        font-weight: 800;
+        margin-bottom: 4rem;
+        @media (max-width: 991.98px) {
+          text-align: center;
+        }
+        &::after {
+          content: "";
+          width: 50%;
+          height: 3px;
+          position: absolute;
+          bottom: -50%;
+          left: 0;
+          background-color: $primaryColorGrenn;
+          @media (max-width: 991.98px) {
+            left: 25%;
+            bottom: -40%;
+          }
+        }
+      }
+      .paragraph-light {
+        font-size: 0.87rem;
+        @media (max-width: 991.98px) {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+// END ABOUT
+// start footer
+footer {
+  .footer {
+    .contact-us {
+      background-color: $lastColor;
+      padding: 1.5rem;
+      .speciale-head {
+        margin-bottom: 3.5rem;
+      }
+      .contact-head {
+        font-size: 2.5rem;
+        font-weight: bolder;
+        color: $secondaryColor;
+        text-transform: capitalize;
+        text-align: center;
+        @media (max-width: 575.98px) {
+          text-align: center;
+          font-size: 1.6rem;
+        }
+      }
+      .email {
+        margin-bottom: 1rem;
+        margin-left: 1rem;
+        text-align: center;
+        @media (max-width: 575.98px) {
+          margin-left: 0;
+        }
+        a {
+          font-size: 2rem;
+          font-weight: 800;
+          text-transform: capitalize;
+          color: $primaryColorGrenn;
+        }
+      }
+      .social-media {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @media (max-width: 575.98px) {
+          flex-direction: column;
+        }
+        h4 {
+          font-size: 0.87rem;
+          color: $secondaryColor;
+          opacity: 0.8;
+          @media (max-width: 575.98px) {
+            font-size: 1.5rem;
+          }
+        }
+        .media {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          li {
+            margin-right: 2rem;
+            @media (max-width: 575.98px) {
+              margin-top: 1.5rem;
+              margin-right: 3rem;
+            }
+            a {
+              font-size: 1.5rem;
+              color: $secondaryColor;
+              @include prefix(transition, 0.5s ease, webkit moz o ms);
+              @media (max-width: 575.98px) {
+                font-size: 2rem;
+              }
+              &:hover {
+                color: $primaryColorGrenn;
+              }
+            }
+          }
+        }
+      }
+    }
+    .copyright {
+      background-color: $secondaryColor;
+      padding: 1rem;
+      color: $lastColor;
+      text-align: center;
+      .copy {
+        font-size: 1rem;
+        text-transform: lowercase;
+        a {
+          color: $primaryColorGrenn;
+        }
+      }
+    }
+  }
+}
+// end footer
